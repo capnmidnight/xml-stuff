@@ -1,0 +1,18 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="0">
+        <StackPanel>
+            <DockPanel>
+                <TextBox Name="xpression" Width="300">xpath</TextBox>
+                <Button Name="fillIn" Width="75">Fill In</Button>
+                <Button Name="getVal" Width="75">Get Value</Button>
+                <TextBox Name="val" Width="150">value</TextBox>
+                <Button Name="setVal" Width="75">Set Value</Button>
+                <Button Name="reset" Width="75">Reset</Button>
+            </DockPanel>
+            <TextBlock Name="doc">document</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
