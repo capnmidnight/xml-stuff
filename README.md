@@ -41,7 +41,7 @@ x.SetValue("/contacts/contact/address/postal", "68042");
 If we wanted to do it as attributes instead, however, it would be a little more amenable to the style of XmlEdit
 ```C#
 XmlDocumentAlterer contacts = new XmlDocumentAlterer();
-x.FillIn("/contacts/contact/[@name='Patrick Hines',@phone='206-555-0144']/address/[@street1='123 Main St',@city='Mercer Island',@state='WA',@postal='68042']");
+/contacts/contact[@name='Patrick_Hines'][@phone='206-555-0144']/address[@street1='123_Main_St'][@city='Mercer_Island'][@state='WA'][@postal='68042']
 ```
 
 As XmlEdit has the power to make your XPath expressions Just Work.
