@@ -122,6 +122,10 @@ namespace XmlEdit
         {
             FillIn(xpath, this._document);
         }
+        public void FillIn(string xpath)
+        {
+            FillIn(new Expression(xpath));
+        }
         private void FillIn(Expression xpath, XmlNode topContext)
         {
             //initialize the context node
