@@ -83,35 +83,19 @@ namespace XmlEdit
             return null;
         }
 
-        protected string _xmlNamespace, _nodeName;
+        public string Namespace{get;set;}
 
-        public string Namespace
-        {
-            get
-            {
-                return this._xmlNamespace;
-            }
-            set
-            {
-                this._xmlNamespace = value;
-            }
-        }
-        public string Test
-        {
-            get
-            {
-                return this._nodeName;
-            }
-        }
+        public string Test { get; protected set; }
+
         public override string ToString()
         {
-            if (this._xmlNamespace != null && this._xmlNamespace.Length > 0)
+            if (this.Namespace != null && this.Namespace.Length > 0)
             {
-                return this._xmlNamespace + ":" + this._nodeName;
+                return this.Namespace + ":" + this.Test;
             }
             else
             {
-                return this._nodeName;
+                return this.Test;
             }
         }
     }

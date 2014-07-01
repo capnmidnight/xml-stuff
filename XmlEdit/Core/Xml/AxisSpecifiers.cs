@@ -62,10 +62,6 @@ namespace XmlEdit
     /// </summary>
     public class AxisSpecifier
     {
-        private PrincipalNodeTypes _nodeType;
-        private string _extendedSyntax;
-        private string _simpleSyntax;
-
         /// <summary>
         /// All of the standard axis specifiers
         /// </summary>
@@ -96,9 +92,9 @@ namespace XmlEdit
         /// <param name="compactSyntax"></param>
         private AxisSpecifier(PrincipalNodeTypes nodeType, string extendedSyntax, string compactSyntax)
         {
-            this._nodeType = nodeType;
-            this._extendedSyntax = extendedSyntax;
-            this._simpleSyntax = compactSyntax;
+            this.NodeType = nodeType;
+            this.ExtendedSyntax = extendedSyntax + "::";
+            this.SimpleSyntax = compactSyntax;
             AllSpecifiers.Add(this);
         }
 
@@ -132,9 +128,10 @@ namespace XmlEdit
         /// <returns></returns>
         public static AxisSpecifier Find(string extendedSyntax)
         {
+            extendedSyntax = extendedSyntax + "::";
             foreach (AxisSpecifier axis in AllSpecifiers)
             {
-                if (axis._extendedSyntax.Equals(extendedSyntax))
+                if (axis.ExtendedSyntax.Equals(extendedSyntax))
                 {
                     return axis;
                 }
@@ -146,37 +143,19 @@ namespace XmlEdit
         /// Gets the extended version of the string representation of the AxisSpecifier. All AxisSpecifiers have an 
         /// extended syntax version.
         /// </summary>
-        public string ExtendedSyntax
-        {
-            get
-            {
-                return this._extendedSyntax + "::";
-            }
-        }
+        public string ExtendedSyntax{get; private set;}
 
         /// <summary>
         /// Gets the simplified version of the string representation of the AxisSpecifier. Only certain AxisSpecifiers
         /// have simplified syntax versions: Child, Attribute, Descendant, Parent, and Self. All others will return
         /// null.
         /// </summary>
-        public string SimpleSyntax
-        {
-            get
-            {
-                return this._simpleSyntax;
-            }
-        }
+        public string SimpleSyntax{get; private set;}
 
         /// <summary>
         /// Gest the PrincipalNodeType that is associated with a specific AxisSpecifier. Attributes and Namespaces
         /// have their own specific node types. All other AxisSpecifiers use the Element node type.
         /// </summary>
-        public PrincipalNodeTypes NodeType
-        {
-            get
-            {
-                return this._nodeType;
-            }
-        }
+        public PrincipalNodeTypes NodeType{get; private set;}
     }
 }

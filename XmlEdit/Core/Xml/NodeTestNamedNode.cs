@@ -20,21 +20,11 @@ namespace XmlEdit
             : this(null, nodeName)
         {
         }
+
         public NodeTestNamedNode(string xmlNamespace, string nodeName)
         {
-            this._xmlNamespace = xmlNamespace;
-            this._nodeName = nodeName;
-        }
-        public override string ToString()
-        {
-            if (this._xmlNamespace != null && this._xmlNamespace.Length > 0)
-            {
-                return string.Format("{0}:{1}", this._xmlNamespace, this._nodeName);
-            }
-            else
-            {
-                return this._nodeName;
-            }
+            this.Namespace = xmlNamespace;
+            this.Test = nodeName;
         }
     }
     internal class NamedNodeNodeTestFactory : NodeTestFactory
